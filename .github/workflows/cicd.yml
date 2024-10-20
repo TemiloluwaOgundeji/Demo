@@ -39,7 +39,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: githubactiontask
+          task-definition: githubactiontaskdefinition
           container-name: githubactionrepo
           image: ${{ steps.build-image.outputs.image }}    
       - name: Deploy Amazon ECS task definition

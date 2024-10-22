@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:013250476206:task-definition/demotaskdefinition:2",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:013250476206:task-definition/demotaskdefinition:6",
     "containerDefinitions": [
         {
             "name": "demorepo",
@@ -39,7 +39,7 @@
     "taskRoleArn": "arn:aws:iam::013250476206:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::013250476206:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 6,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -88,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-22T17:34:38.318Z",
+    "registeredAt": "2024-10-22T20:32:50.755Z",
     "registeredBy": "arn:aws:iam::013250476206:user/tutor",
     "tags": []
 }

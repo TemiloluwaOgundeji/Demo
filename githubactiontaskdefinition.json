@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:116981767394:task-definition/githubactiontask:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:013250476206:task-definition/demotaskdefinition:1",
     "containerDefinitions": [
         {
-            "name": "githubactionrepo",
-            "image": "116981767394.dkr.ecr.us-east-1.amazonaws.com/githubactionrepo",
+            "name": "demorepo",
+            "image": "013250476206.dkr.ecr.us-east-1.amazonaws.com/demorepo",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "githubactionrepo-5000-tcp",
+                    "name": "demorepo-5000-tcp",
                     "containerPort": 5000,
                     "hostPort": 5000,
                     "protocol": "tcp",
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/githubactiontask",
+                    "awslogs-group": "/ecs/demotaskdefinition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,9 +35,9 @@
             "systemControls": []
         }
     ],
-    "family": "githubactiontask",
-    "taskRoleArn": "arn:aws:iam::116981767394:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::116981767394:role/ecsTaskExecutionRole",
+    "family": "demotaskdefinition",
+    "taskRoleArn": "arn:aws:iam::013250476206:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::013250476206:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
@@ -88,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-20T16:09:00.536Z",
-    "registeredBy": "arn:aws:iam::116981767394:root",
+    "registeredAt": "2024-10-22T16:55:31.587Z",
+    "registeredBy": "arn:aws:iam::013250476206:user/tutor",
     "tags": []
 }

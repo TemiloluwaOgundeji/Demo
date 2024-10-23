@@ -48,9 +48,9 @@ jobs:
       - name: Update and deploy ECS task definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: pyhtonapp-task-definition.json
+          task-definition: pyhtonapp-task-definition.json  # Path to your ECS task definition JSON file
           container-name: pythonapp
-          image: ${{ steps.build-image.outputs.image }}
+          image: ${{ env.image }}
           
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1

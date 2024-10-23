@@ -49,9 +49,10 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: pyhtonapp-task-definition.json 
-          container-name: pyhtonapp
-          image: ${{ steps.build-image.outputs.image }} 
+          task-definition: pythonapp-task-definition.json  # Path to your ECS task definition JSON file
+          container-name: pythonapp
+          image: ${{ env.image }}  # Use the dynamically built image from the previous step
+ 
           
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1

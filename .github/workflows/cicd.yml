@@ -36,7 +36,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-          REPOSITORY: demorepo  # Your ECR repository name
+          REPOSITORY: pythonapp  # Your ECR repository name
         run: |
           echo "ECR_REGISTRY: $ECR_REGISTRY"
           echo "REPOSITORY: $REPOSITORY"
@@ -49,15 +49,15 @@ jobs:
       - name: Update and deploy ECS task definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: demotaskdefinition.json
-          container-name: demorepo
+          task-definition: pyhtonapp-task-definition.json
+          container-name: pythonapp
           image: ${{ steps.build-image.outputs.image }}
           
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: demoservice
-          cluster: demo
+          task-definition: ${{ steps.render-task-def.outputs.task-definition }}  # Corrected reference
+          service: pythonapp-service
+          cluster: PythonAppCluster
           wait-for-service-stability: true
 

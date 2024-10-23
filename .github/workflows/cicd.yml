@@ -45,12 +45,13 @@ jobs:
           docker build -t "$ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG" .
           docker push "$ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
-      - name: Update and deploy ECS task definition
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: pyhtonapp-task-definition.json  # Path to your ECS task definition JSON file
-          container-name: pythonapp
-          image: ${{ env.image }}
+          task-definition: pyhtonapp-task-definition.json 
+          container-name: pyhtonapp
+          image: ${{ steps.build-image.outputs.image }} 
           
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
